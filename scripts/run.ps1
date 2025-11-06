@@ -3,7 +3,7 @@ param(
 )
 
 if([string]::IsNullOrEmpty($ApplicationFilePath)) {
-    $ApplicationFilePath = (Join-Path -Path $PSScriptRoot -ChildPath '../src/RemoveSingleInstanceCharacters/bin/Debug/net8.0/RemoveSingleInstanceCharacters.exe')
+    $ApplicationFilePath = (Join-Path -Path $PSScriptRoot -ChildPath '../src/RemoveSingleInstanceCharacters/bin/Debug/net8.0/RemoveSingleInstanceCharacters' -AdditionalChildPath $(if($IsWindows) { @('exe') } else { @() }))
 }
 
 Import-Module -Name (Join-Path -Path $PSScriptRoot -ChildPath 'NoSingleInstanceCharacters')

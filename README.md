@@ -76,9 +76,9 @@ There is also an implementation of this algorithm written as a specification usi
 
 This specification is used to ensure the correctness of the algorithm, create the sample implementation, as well as create the sample validation logic.
 
-You can open the project using the TLA Toolbox and then run the associated model.
-
 > Note: the algorithm specification is written in PlusCal and translated to TLA+
+
+To run the model checker you can open the project using the TLA Toolbox and then run the associated model.  Or in VS Code with the TLA+ (Temporal Logic of Actions) extension you can run the `TLA+: Parse module` action from the command palette and then run `TLA+: Check model with TLC` with the specification file open.
 
 ### Running
 
@@ -93,3 +93,9 @@ You can also pass your own executable/application file path to the script so tha
 `./scripts/run.ps1 -ApplicationFilePath "<full-path-to-my-exe>"`
 
 To run the PowerShell Pester tests, run `Invoke-Pester -Path './NoSingleInstanceCharacters'` inside the `/scripts` folder.
+
+> If the command `Invoke-Pester` is not found, ensure you have installed the `Pester` module either directly of via the [requirements.psd1](requirements.psd1) using `PSDepend` (see [Install-Dependencies.ps1](scripts/Install-Dependencies.ps1) for PowerShell setup).
+
+#### Dev Container
+
+This repository also supports the use of Dev Containers which integrates into VS Code.  In VS Code with the "Dev Containers" extension installed you can reopen this repository in a development container which will be built with all the necessary tools, including `dotnet`, `PowerShell` (with module dendencies), `Open Policy Agent`, and `TLA+`.

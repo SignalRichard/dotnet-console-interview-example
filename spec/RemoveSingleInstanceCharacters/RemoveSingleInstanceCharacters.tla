@@ -56,13 +56,13 @@ EXTENDS Integers, Sequences, TLC
     }
 }
 *)
-\* BEGIN TRANSLATION (chksum(pcal) = "26acebfb" /\ chksum(tla) = "e08c89ff")
+\* BEGIN TRANSLATION (chksum(pcal) = "586bf200" /\ chksum(tla) = "5c7b1f60")
 CONSTANT defaultInitValue
-VARIABLES antepenultimate, previous, current, singleInstance, i, input, 
-          result, domainSize, domain, characterMapping, pc
+VARIABLES pc, antepenultimate, previous, current, singleInstance, i, input, 
+          result, domainSize, domain, characterMapping
 
-vars == << antepenultimate, previous, current, singleInstance, i, input, 
-           result, domainSize, domain, characterMapping, pc >>
+vars == << pc, antepenultimate, previous, current, singleInstance, i, input, 
+           result, domainSize, domain, characterMapping >>
 
 Init == (* Global variables *)
         /\ antepenultimate = defaultInitValue

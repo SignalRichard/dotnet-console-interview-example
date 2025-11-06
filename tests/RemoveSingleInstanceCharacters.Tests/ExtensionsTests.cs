@@ -1,5 +1,4 @@
 using Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.ObjectModel;
-using RemoveSingleInstanceCharacters;
 
 namespace RemoveSingleInstanceCharacters.Tests
 {

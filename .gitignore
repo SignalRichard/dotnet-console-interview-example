@@ -1,0 +1,15 @@
+# C#
+.vs
+bin
+obj
+
+# TLA+
+**/*.toolbox/*
+!**/*.toolbox/*.launch
+**/*.toolbox/*SnapShot*.launch
+!**/*.toolbox/*.project
+*.out
+*.old
+**/states
+
+TestResults

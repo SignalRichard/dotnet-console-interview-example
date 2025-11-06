@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoveSingleInstanceCharacters", "src\RemoveSingleInstanceCharacters\RemoveSingleInstanceCharacters.csproj", "{6EAD28AD-7472-9071-BB84-C31356D592FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoveSingleInstanceCharacters.Tests", "tests\RemoveSingleInstanceCharacters.Tests\RemoveSingleInstanceCharacters.Tests.csproj", "{273A9CD2-216C-473D-A6AB-C3535D733C5F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6EAD28AD-7472-9071-BB84-C31356D592FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EAD28AD-7472-9071-BB84-C31356D592FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EAD28AD-7472-9071-BB84-C31356D592FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EAD28AD-7472-9071-BB84-C31356D592FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{273A9CD2-216C-473D-A6AB-C3535D733C5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{273A9CD2-216C-473D-A6AB-C3535D733C5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{273A9CD2-216C-473D-A6AB-C3535D733C5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{273A9CD2-216C-473D-A6AB-C3535D733C5F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E88D7716-E059-42C3-87BE-46E88DC4C23E}
+	EndGlobalSection
+EndGlobal

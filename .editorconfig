@@ -11,7 +11,7 @@ charset = utf-8
 indent_style = space
 
 # 4 space indentation
-[*.{cs,ps1,rego,tla}]
+[*.{cs,ps1,psd1,psm1,rego,tla}]
 indent_size = 4
 
 # 2 space indentation

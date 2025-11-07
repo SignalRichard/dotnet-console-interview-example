@@ -48,6 +48,7 @@ The following optional tooling is also used:
 
 * `regal` - OPA/Rego linting
 * `Pester` - PowerShell module for unit testing
+* `Psake` - PowerShell module automation tool
 * `PSScriptAnalyzer` - PowerShell module for linting
 
 ### Quickstart
@@ -69,7 +70,9 @@ columns 6
   spec-- "implemented as" -->opa
 ```
 
-First, run `dotnet build` from the repository root to build the sample implementation.
+To run the PowerShell commands, first run `Import-Module -Name './scripts/NoSingleInstanceCharacters`
+
+To build the sample implementation, run `Build-Solution` from the repository root to build the sample implementation.
 
 If you have `opa`, and `PowerShell` installed you can run the [run.ps1](scripts/run.ps1) script from the repository root and it will run the OPA server and run the console application with a set of predefined inputs that will get validated by calling the OPA server.
 
@@ -81,7 +84,7 @@ You can also pass your own executable/application file path to the script so tha
 
 `./scripts/run.ps1 -ApplicationFilePath "<full-path-to-my-exe>"`
 
-To run the PowerShell Pester tests, run `Invoke-Pester -Path './NoSingleInstanceCharacters'` inside the `/scripts` folder.
+To run the PowerShell Pester tests, run `Test-Script` from the repository root.
 
 > If the command `Invoke-Pester` is not found, ensure you have installed the `Pester` module either directly of via the [requirements.psd1](requirements.psd1) using `PSDepend` (see [Install-Dependencies.ps1](scripts/Install-Dependencies.ps1) for PowerShell setup).
 
@@ -100,7 +103,7 @@ The following sections provide overviews of the different sections of code and h
 
 The sample implementation is written in C# and can be found in the [Extensions.cs](src/RemoveSingleInstanceCharacters/Extensions.cs) file.
 
-To build the implementation, run `dotnet build` from the repository root.
+To build the implementation, run `dotnet build` (or `Build-Solution`) from the repository root.
 
 A console application will be created under the project directory, `src/RemoveSingleInstanceCharacters/bin/Debug/net8.0/RemoveSingleInstanceCharacters.exe`.  You can run this console application with an argument and will output the result.
 
@@ -108,7 +111,7 @@ A console application will be created under the project directory, `src/RemoveSi
 
 The single instance characters that are removed can be changed by updating the [appsettings.json](src/RemoveSingleInstanceCharacters/appsettings.json) file.
 
-To run the unit tests, run `dotnet test` in the repository root.
+To run the unit tests, run `dotnet test` (or `Test-Solution`) in the repository root.
 
 ### Validation Code
 
@@ -136,7 +139,7 @@ You can use this as a validation system for writing your own implementations of 
 
 The single instance characters that are checked can be changed by updating the [data.json](policy/data.json) file.
 
-To run the policy tests, run `opa test . -v` inside the `/policy` folder.
+To run the policy tests, run `opa test . -v` inside the `/policy` folder or run `Test-Policy` from the repository root.
 
 ### Formal Methods/Specification
 

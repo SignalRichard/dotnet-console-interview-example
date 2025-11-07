@@ -114,7 +114,7 @@ To run the unit tests, run `dotnet test` in the repository root.
 
 The validation code implementation is written in Rego and can be found in the [no_single_instance_characters.rego](policy/no_single_instance_characters.rego) file and run using Open Policy Agent (OPA).  Rego excels at codifying policies and verifying structured JSON inputs.  To run OPA stand alone from the repository root:
 
-`opa run --server ./policy/no_single_instance_characters.rego ./policy/data.json`
+`opa run --server ./policy/no_single_instance_characters/no_single_instance_characters.rego ./policy/no_single_instance_characters/data.json`
 
 The OPA server instance is hosted locally at [http://localhost:8181](http://localhost:8181)
 

@@ -2,6 +2,8 @@ task default -depends Init, Build, Test, Lint
 
 task Init {
     Import-Module -Name './scripts/NoSingleInstanceCharacters'
+    Import-Module -Name 'Pester'
+    Import-Module -Name 'PSScriptAnalyzer'
 }
 
 task Build -depends Init {

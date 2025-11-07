@@ -4,7 +4,7 @@ This repository outlines an example interview coding exercise and provides examp
 
 ## How to Use This Repository
 
-Start by reading the example below or check out the [RemoveSingleInstanceCharacters.feature](features/RemoveSingleInstanceCharacters.feature) file, understand and think about the question and how you would implement a solution.
+Start by reading the [Example](#example) below or check out the [RemoveSingleInstanceCharacters.feature](features/RemoveSingleInstanceCharacters.feature) file, understand and think about the question and how you would implement a solution.
 
 Start implementing your own solution in whatever language and framework you want.  If you complete your implementation, you can check its output against the [Validation Code](#validation-code).  You can call the [run.ps1](scripts/run.ps1) file and provide the application file path with your own application so long as it outputs the new string.
 
@@ -28,7 +28,71 @@ Good questions for you to ask, verify, and think about are:
 * Single instance numbers means individual characters, not numbers composed of multiple individual numbers
 * You do not need to parse the numbers to determine if they are even - this is a very limited set (5 numbers) that can be hard coded
 
-### Code Overview
+## Getting Started
+
+### Prerequisites
+
+The following tooling is required to fully run all code in the repository:
+
+* `dotnet` - build and test the sample implementation
+* `opa` - run and test the validation implementation
+* `PowerShell` - run the automated testing script
+* `TLA Toolbox` - run the specification model
+  * `Java` - required to run the TLA Toolbox
+
+The following optional tooling is also used:
+
+* `regal` - OPA/Rego linting
+* `Pester` - PowerShell module for unit testing
+* `PSScriptAnalyzer` - PowerShell module for linting
+
+### Quickstart
+
+```mermaid
+block-beta
+columns 6
+  args["test_arguments.json"] space script["run.ps1"]:4
+  space:6
+  appsettings["appsettings.json"] space app["RemoveSingleInstanceCharacters.exe"] opa["remove_single_instance_characters"] space data["data.json"]
+  space:6
+  spec["RemoveSingleInstanceCharacters specification"]:6
+  script-- "reads" -->args
+  script-- "input/output" -->app
+  script-- "output/result" -->opa
+  app-- "reads" -->appsettings
+  opa-- "reads" -->data
+  spec-- "implemented as" -->app
+  spec-- "implemented as" -->opa
+```
+
+First, run `dotnet build` from the repository root to build the sample implementation.
+
+If you have `opa`, and `PowerShell` installed you can run the [run.ps1](scripts/run.ps1) script from the repository root and it will run the OPA server and run the console application with a set of predefined inputs that will get validated by calling the OPA server.
+
+`./scripts/run.ps1`
+
+The test inputs can be changed by updating the [test_arguments.json](scripts/test_arguments.json) file.
+
+You can also pass your own executable/application file path to the script so that it will use your implementation instead of the sample.
+
+`./scripts/run.ps1 -ApplicationFilePath "<full-path-to-my-exe>"`
+
+To run the PowerShell Pester tests, run `Invoke-Pester -Path './NoSingleInstanceCharacters'` inside the `/scripts` folder.
+
+> If the command `Invoke-Pester` is not found, ensure you have installed the `Pester` module either directly of via the [requirements.psd1](requirements.psd1) using `PSDepend` (see [Install-Dependencies.ps1](scripts/Install-Dependencies.ps1) for PowerShell setup).
+
+### Dev Container
+
+This repository also supports the use of Dev Containers which integrates into VS Code.  In VS Code with the "Dev Containers" extension installed you can reopen this repository in a development container which will be built with all the necessary tools, including `dotnet`, `PowerShell` (with module dendencies), `Open Policy Agent`, and `TLA+`.
+
+> To use Dev Containers with this repository requires VS Code + Dev Containers extension and Docker Desktop (+ WSL on Windows).
+
+
+## Code Overview
+
+The following sections provide overviews of the different sections of code and how to use them.
+
+## Sample Implementation
 
 The sample implementation is written in C# and can be found in the [Extensions.cs](src/RemoveSingleInstanceCharacters/Extensions.cs) file.
 
@@ -79,25 +143,3 @@ This specification is used to ensure the correctness of the algorithm, create th
 > Note: the algorithm specification is written in PlusCal and translated to TLA+
 
 To run the model checker you can open the spec using the TLA Toolbox and then run the associated model.  Or in VS Code with the TLA+ (Temporal Logic of Actions) extension you can run the `TLA+: Parse module` action from the command palette and then run `TLA+: Check model with TLC` with the specification file open.
-
-### Running
-
-If you have `opa`, and `PowerShell` installed you can run the [run.ps1](scripts/run.ps1) script from the repository root and it will run the OPA server and run the console application with a set of predefined inputs that will get validated by calling the OPA server.
-
-`./scripts/run.ps1`
-
-The test inputs can be changed by updating the [test_arguments.json](scripts/test_arguments.json) file.
-
-You can also pass your own executable/application file path to the script so that it will use your implementation instead of the sample.
-
-`./scripts/run.ps1 -ApplicationFilePath "<full-path-to-my-exe>"`
-
-To run the PowerShell Pester tests, run `Invoke-Pester -Path './NoSingleInstanceCharacters'` inside the `/scripts` folder.
-
-> If the command `Invoke-Pester` is not found, ensure you have installed the `Pester` module either directly of via the [requirements.psd1](requirements.psd1) using `PSDepend` (see [Install-Dependencies.ps1](scripts/Install-Dependencies.ps1) for PowerShell setup).
-
-#### Dev Container
-
-This repository also supports the use of Dev Containers which integrates into VS Code.  In VS Code with the "Dev Containers" extension installed you can reopen this repository in a development container which will be built with all the necessary tools, including `dotnet`, `PowerShell` (with module dendencies), `Open Policy Agent`, and `TLA+`.
-
-> To use Dev Containers with this repository requires VS Code + Dev Containers extension and Docker Desktop (+ WSL on Windows).

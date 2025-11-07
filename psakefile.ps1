@@ -2,8 +2,6 @@ task default -depends Init, Build, Test, Lint
 
 task Init {
     Import-Module -Name './scripts/NoSingleInstanceCharacters'
-    Import-Module -Name 'Pester'
-    Import-Module -Name 'PSScriptAnalyzer'
 }
 
 task Build -depends Init {
@@ -14,6 +12,7 @@ task Build -depends Init {
 task Test -depends Build, Init {
     Test-Solution -SolutionFilePath './RemoveSingleInstanceCharacters.sln'
     Test-Policy -PolicyDirectory './policy'
+    Test-Script -ScriptsDirectory './scripts'
     Test-Model -SpecFilePath 'spec/RemoveSingleInstanceCharacters/RemoveSingleInstanceCharacters.tla'
 }
 

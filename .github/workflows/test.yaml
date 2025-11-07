@@ -23,5 +23,5 @@ jobs:
           imageName: ghcr.io/signalrichard/dotnet-console-interview-example
           cacheFrom: ghcr.io/signalrichard/dotnet-console-interview-example
           push: always
-          runCmd: ./scripts/build.ps1
+          runCmd: pwsh -c "./scripts/build.ps1"
       

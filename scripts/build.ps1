@@ -1,4 +1,4 @@
-./Install-Dependencies.ps1
+./scripts/Install-Dependencies.ps1
 
 dotnet build
 dotnet test

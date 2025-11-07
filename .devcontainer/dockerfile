@@ -20,7 +20,9 @@ RUN apt-get update \
     && apt-get update \
     && apt-get install -y --no-install-recommends dotnet-sdk-8.0 dotnet-runtime-8.0 powershell \
     && curl -L -o /usr/local/bin/opa https://openpolicyagent.org/downloads/latest/opa_linux_amd64 \
-    && chmod +x /usr/local/bin/opa
+    && chmod +x /usr/local/bin/opa \
+    && curl -L -o /usr/local/bin/regal https://github.com/open-policy-agent/regal/releases/latest/download/regal_Linux_x86_64 \
+    && chmod +x /usr/local/bin/regal
 
 WORKDIR /workspace
 

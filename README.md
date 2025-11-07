@@ -1,5 +1,3 @@
-# Status
-
 [![Test](https://github.com/SignalRichard/dotnet-console-interview-example/actions/workflows/test.yaml/badge.svg)](https://github.com/SignalRichard/dotnet-console-interview-example/actions/workflows/test.yaml)
 
 # Interview Coding Example

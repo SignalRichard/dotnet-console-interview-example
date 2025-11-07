@@ -20,8 +20,8 @@ jobs:
       - name: Dev Container
         uses: devcontainers/ci@v0.3
         with:
-          imageName: ghcr.io/example/example-devcontainer
-          cacheFrom: ghcr.io/example/example-devcontainer
+          imageName: ghcr.io/SignalRichard/dotnet-console-interview-example
+          cacheFrom: ghcr.io/SignalRichard/dotnet-console-interview-example
           push: always
-          runCmd: Invoke-Pester -Path './scripts/NoSingleInstanceCharacters'
+          runCmd: ./scripts/build.ps1
       

@@ -7,8 +7,7 @@ if([string]::IsNullOrEmpty($ApplicationFilePath)) {
 }
 
 Import-Module -Name (Join-Path -Path $PSScriptRoot -ChildPath 'NoSingleInstanceCharacters')
-# Build-Solution -SolutionFilePath (Join-Path -Path $PSScriptRoot -ChildPath '../RemoveSingleInstanceCharacters.sln')
 $opaProcess = Start-OpenPolicyAgent -PolicyDirectoryPath (Join-Path -Path $PSScriptRoot -ChildPath '../policy/no_single_instance_characters')
-(Import-Tests -TestsFilePath (Join-Path -Path $PSScriptRoot -ChildPath 'test_arguments.json')).tests | Test-Application -ApplicationFilePath $ApplicationFilePath
+(Import-Test -TestsFilePath (Join-Path -Path $PSScriptRoot -ChildPath 'test_arguments.json')).tests | Test-Application -ApplicationFilePath $ApplicationFilePath
 $opaProcess | Stop-Process
 Remove-Module -Name 'NoSingleInstanceCharacters'

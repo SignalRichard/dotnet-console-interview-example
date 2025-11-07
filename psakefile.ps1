@@ -1,7 +1,3 @@
-properties {
-    $ApplicationFilePath = $ApplicationFilePath
-}
-
 task default -depends Init, Build, Test, Lint
 
 task Init {

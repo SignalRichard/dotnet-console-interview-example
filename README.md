@@ -1,3 +1,7 @@
+# Status
+
+[![GitHub Actions Test](https://github.com/SignalRichard/dotnet-console-interview-example/actions/workflows/test.yaml/badge.svg)](https://github.com/SignalRichard/dotnet-console-interview-example/actions/workflows/test.yaml)
+
 # Interview Coding Example
 
 This repository outlines an example interview coding exercise and provides example solutions, specifications, and validation.

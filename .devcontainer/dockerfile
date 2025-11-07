@@ -22,7 +22,8 @@ RUN apt-get update \
     && curl -L -o /usr/local/bin/opa https://openpolicyagent.org/downloads/latest/opa_linux_amd64 \
     && chmod +x /usr/local/bin/opa \
     && curl -L -o /usr/local/bin/regal https://github.com/open-policy-agent/regal/releases/latest/download/regal_Linux_x86_64 \
-    && chmod +x /usr/local/bin/regal
+    && chmod +x /usr/local/bin/regal \
+    && curl -L -o /usr/local/bin/tla2tools.jar https://github.com/tlaplus/tlaplus/releases/latest/download/tla2tools.jar
 
 WORKDIR /workspace
 

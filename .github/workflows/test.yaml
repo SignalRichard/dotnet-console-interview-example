@@ -20,8 +20,8 @@ jobs:
       - name: Dev Container
         uses: devcontainers/ci@v0.3
         with:
-          imageName: ghcr.io/SignalRichard/dotnet-console-interview-example
-          cacheFrom: ghcr.io/SignalRichard/dotnet-console-interview-example
+          imageName: ghcr.io/signalrichard/dotnet-console-interview-example
+          cacheFrom: ghcr.io/signalrichard/dotnet-console-interview-example
           push: always
           runCmd: ./scripts/build.ps1
       

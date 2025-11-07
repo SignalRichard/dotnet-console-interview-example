@@ -1,6 +1,6 @@
 package no_single_instance_characters
 
-default _characters := {x | x := data.characters[_]}
+default _characters := {c | some c in data.characters}
 
 default valid := false
 

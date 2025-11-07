@@ -2,7 +2,7 @@ package no_single_instance_characters_test
 
 import data.no_single_instance_characters
 
-characters := {"0", "2", "4", "6", "8"}
+characters := ["0", "2", "4", "6", "8"]
 
 test_valid_when_empty if {
 	no_single_instance_characters.valid with input as {"str": ""}

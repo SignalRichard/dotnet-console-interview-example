@@ -10,4 +10,3 @@ Import-Module -Name (Join-Path -Path $PSScriptRoot -ChildPath 'NoSingleInstanceC
 $opaProcess = Start-OpenPolicyAgent -PolicyDirectoryPath (Join-Path -Path $PSScriptRoot -ChildPath '../policy/no_single_instance_characters')
 (Import-Test -TestsFilePath (Join-Path -Path $PSScriptRoot -ChildPath 'test_arguments.json')).tests | Test-Application -ApplicationFilePath $ApplicationFilePath
 $opaProcess | Stop-Process
-Remove-Module -Name 'NoSingleInstanceCharacters'

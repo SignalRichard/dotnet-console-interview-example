@@ -1,5 +1,7 @@
 package no_single_instance_characters
 
+default _characters := {c | some c in data.characters}
+
 default valid := false
 
 # METADATA
@@ -24,19 +26,19 @@ _is_valid(n, arr) if {
 	# \/ ~({ result[n] } \subseteq singleInstance)
 
 	c := arr[n]
-	count({c} & data.characters) == 0
+	count({c} & _characters) == 0
 }
 
 _is_valid(n, arr) if {
 	# \/ { result[n] } \subseteq singleInstance) /\ ((n - 1 >= 1 /\ { result[n - 1] } \subseteq singleInstance)
 	n - 1 >= 0
-	count({arr[n]} & data.characters) > 0
-	count({arr[n - 1]} & data.characters) > 0
+	count({arr[n]} & _characters) > 0
+	count({arr[n - 1]} & _characters) > 0
 }
 
 _is_valid(n, arr) if {
 	# \/ (n + 1 <= Len(result) /\ { result[n + 1] } \subseteq singleInstance)
 	n + 1 < count(arr)
-	count({arr[n]} & data.characters) > 0
-	count({arr[n + 1]} & data.characters) > 0
+	count({arr[n]} & _characters) > 0
+	count({arr[n + 1]} & _characters) > 0
 }

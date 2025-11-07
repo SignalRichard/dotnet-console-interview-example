@@ -112,7 +112,7 @@ To run the unit tests, run `dotnet test` in the repository root.
 
 ### Validation Code
 
-The validation code implementation is written in Rego and can be found in the [no_single_instance_characters.rego](policy/no_single_instance_characters.rego) file and run using Open Policy Agent (OPA).  Rego excels at codifying policies and verifying structured JSON inputs.  To run OPA stand alone from the repository root:
+The validation code implementation is written in Rego and can be found in the [no_single_instance_characters.rego](policy/no_single_instance_characters/no_single_instance_characters.rego) file and run using Open Policy Agent (OPA).  Rego excels at codifying policies and verifying structured JSON inputs.  To run OPA stand alone from the repository root:
 
 `opa run --server ./policy/no_single_instance_characters/no_single_instance_characters.rego ./policy/no_single_instance_characters/data.json`
 
@@ -134,7 +134,7 @@ The body must be structured as JSON as follows:
 
 You can use this as a validation system for writing your own implementations of the algorithm by passing your result to OPA to check!
 
-The single instance characters that are checked can be changed by updating the [data.json](policy/data.json) file.
+The single instance characters that are checked can be changed by updating the [data.json](policy/no_single_instance_characters/data.json) file.
 
 To run the policy tests, run `opa test . -v` inside the `/policy` folder.
 

@@ -2,7 +2,7 @@
 
 dotnet build
 dotnet test
-opa test .\policy
+opa test ./policy
 Invoke-Pester -Path ./scripts/NoSingleInstanceCharacters
 Invoke-ScriptAnalyzer -Path scripts -Recurse
 java -cp "/usr/local/bin/tla2tools.jar" pcal.trans "spec/RemoveSingleInstanceCharacters/RemoveSingleInstanceCharacters.tla"

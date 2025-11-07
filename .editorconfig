@@ -15,5 +15,5 @@ indent_style = space
 indent_size = 4
 
 # 2 space indentation
-[*.{feature, md}]
+[*.{feature, md, yaml, yml}]
 indent_size = 2

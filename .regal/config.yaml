@@ -1,0 +1,11 @@
+rules:
+  imports:
+    unresolved-reference:
+      # one of "error", "warning", "ignore"
+      level: error
+      # list of paths that should be ignored
+      # these may be paths to data, or rules that may
+      # not be present at the time of linting
+      # using glob syntax
+      except-paths:
+        - data.characters

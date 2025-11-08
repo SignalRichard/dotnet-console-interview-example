@@ -58,7 +58,7 @@ columns 6
   space:6
   args["test_arguments.json"] space module["NoSingleInstanceCharacters module"]:4
   space:6
-  appsettings["appsettings.json"] space app["RemoveSingleInstanceCharacters.exe"] opa["no_single_instance_characters policy"] space data["data.json"]
+  appsettings["appsettings.json"] space app["RemoveSingleInstanceCharacters app"] opa["no_single_instance_characters policy"] space data["data.json"]
   space:6
   spec["RemoveSingleInstanceCharacters specification"]:6
   script-- "imports" -->module

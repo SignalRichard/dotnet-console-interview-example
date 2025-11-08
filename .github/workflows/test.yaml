@@ -21,6 +21,5 @@ jobs:
       - name: Dev Container
         uses: devcontainers/ci@v0.3
         with:
-          push: always
           runCmd: pwsh -c "./scripts/build.ps1"
       

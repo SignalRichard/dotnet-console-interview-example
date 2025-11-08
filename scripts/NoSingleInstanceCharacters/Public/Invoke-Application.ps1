@@ -14,6 +14,7 @@
 function Invoke-Application {
     param(
         [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
+        [AllowEmptyString()]
         [string] $TestArgument,
         [string] $ApplicationFilePath
     )

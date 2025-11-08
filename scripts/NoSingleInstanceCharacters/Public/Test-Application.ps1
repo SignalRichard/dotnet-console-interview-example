@@ -12,6 +12,7 @@
 function Test-Application {
     param(
         [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
+        [AllowEmptyString()]
         [string[]] $TestArgument,
         [string] $ApplicationFilePath
     )

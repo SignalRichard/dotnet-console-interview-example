@@ -13,6 +13,7 @@
 function Invoke-OpenPolicyAgent {
     param(
         [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
+        [AllowEmptyString()]
         [string] $TestValue
     )
 

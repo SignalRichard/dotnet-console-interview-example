@@ -14,7 +14,7 @@ If you have trouble implementing a solution or want to review the sample impleme
 
 ## Example
 
-Remove all instances of single even numbers from a string.
+Remove all instances of single (non-consecutive) even numbers from a string.
 
 * `22 Park Avenue` => `22 Park Avenue`
 * `21 Park Avenue` => `1 Park Avenue`

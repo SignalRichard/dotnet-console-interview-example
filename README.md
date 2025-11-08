@@ -14,7 +14,7 @@ If you have trouble implementing a solution or want to review the sample impleme
 
 ## Example
 
-Remove all instances of single even numbers from a string.
+Remove all instances of single (non-consecutive) even numbers from a string.
 
 * `22 Park Avenue` => `22 Park Avenue`
 * `21 Park Avenue` => `1 Park Avenue`
@@ -54,14 +54,17 @@ The following optional tooling is also used:
 ```mermaid
 block-beta
 columns 6
-  args["test_arguments.json"] space script["run.ps1"]:4
+  script["run.ps1"]:6
   space:6
-  appsettings["appsettings.json"] space app["RemoveSingleInstanceCharacters.exe"] opa["remove_single_instance_characters"] space data["data.json"]
+  args["test_arguments.json"] space module["NoSingleInstanceCharacters module"]:4
+  space:6
+  appsettings["appsettings.json"] space app["RemoveSingleInstanceCharacters app"] opa["no_single_instance_characters policy"] space data["data.json"]
   space:6
   spec["RemoveSingleInstanceCharacters specification"]:6
-  script-- "reads" -->args
-  script-- "input/output" -->app
-  script-- "output/result" -->opa
+  script-- "imports" -->module
+  module-- "reads" -->args
+  module-- "input/output" -->app
+  module-- "output/result" -->opa
   app-- "reads" -->appsettings
   opa-- "reads" -->data
   spec-- "implemented as" -->app
